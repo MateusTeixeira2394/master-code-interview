@@ -1,58 +1,17 @@
-function quickSort(array) {
+// It will choose the last element as a pivot and it will insert the greater values into
+// the right array and the smaller ones into the left. After that, in a recursive way,
+// it will call the quick sort again in both sides.
 
-    let arr = array;
+function quickSort(arr) {
 
     if (arr.length <= 1) return arr;
 
-    if (arr.length == 2) {
+    let leftArr = [];
+    let rightArr = [];
+    let pivot = arr.pop();
 
-        if (arr[0] > arr[1]) {
-            swap(arr, 0, 1);
-        }
+    arr.forEach(currentValue => currentValue > pivot ? rightArr.push(currentValue) : leftArr.push(currentValue));
 
-        return arr;
-
-    }
-
-    let pivotIdx = arr.length - 1;
-    let currentIdx = 0;
-
-    while (arr[currentIdx] > arr[pivotIdx] || currentIdx < pivotIdx) {
-
-        if (arr[currentIdx] > arr[pivotIdx]) {
-
-            shift(arr, currentIdx, pivotIdx);
-            pivotIdx--;
-
-        } else {
-
-            currentIdx++;
-
-        }
-
-    }
-
-    return [...quickSort(arr.slice(0, pivotIdx)), arr[pivotIdx], ...quickSort(arr.slice(pivotIdx + 1))];    
+    return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
 
 }
-
-function shift(arr, currentIdx, pivotIdx) {
-
-    if (pivotIdx - 1 === currentIdx) {
-        swap(arr, currentIdx, pivotIdx);
-    } else {
-        swap(arr, pivotIdx, pivotIdx - 1);
-        swap(arr, pivotIdx, currentIdx);
-    }
-
-}
-
-function swap(arr, idx1, idx2) {
-
-    let temp = arr[idx1];
-    arr[idx1] = arr[idx2];
-    arr[idx2] = temp;
-
-}
-
-module.exports = quickSort;
