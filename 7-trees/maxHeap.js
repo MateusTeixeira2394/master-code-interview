@@ -70,7 +70,7 @@ class MaxHeap {
 
     }
 
-    _isEmpty() {
+    isEmpty() {
         return this._heap.length === 0;
     }
 
@@ -84,11 +84,14 @@ class MaxHeap {
     // Just see the maximum value
     peek() {
 
-        return this._isEmpty ? null : this._heap[0];
+        return this.isEmpty ? null : this._heap[0];
 
     }
-
-    // Remove and get the maximum value
+    /**
+     *Remove and get the maximum value
+     *
+     * @returns the maximum value of the heap
+     */
     extractMax() {
 
         this._swap(0, this._heap.length - 1);
@@ -101,3 +104,5 @@ class MaxHeap {
     }
 
 }
+
+module.exports = MaxHeap;

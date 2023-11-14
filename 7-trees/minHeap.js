@@ -36,9 +36,14 @@ class MinHeap {
       }
     }
   
-    // Remove and return the minimum value from the heap
+    /**
+     *Remove the minimum value from the heap
+     *
+     * @return The minimum value from the heap 
+     * @memberof MinHeap
+     */
     extractMin() {
-      if (this._isEmpty()) {
+      if (this.isEmpty()) {
         return null;
       }
       if (this._heap.length === 1) {
@@ -72,11 +77,11 @@ class MinHeap {
   
     // Get the minimum value in the heap without removing it
     peek() {
-      return this._isEmpty() ? null : this._heap[0];
+      return this.isEmpty() ? null : this._heap[0];
     }
   
     // Check if the heap is empty
-    _isEmpty() {
+    isEmpty() {
       return this._heap.length === 0;
     }
   
@@ -85,3 +90,5 @@ class MinHeap {
       return this._heap.length;
     }
   }
+
+  module.exports = MinHeap;
