@@ -127,6 +127,28 @@ class BinarySearchTree {
 
     }
 
+    breadthFirstSearch() {
+
+        let currentNode = this.root;
+        let list = [];
+        let queue = [currentNode];
+
+        while (queue.length > 0) {
+
+            currentNode = queue.shift();
+
+            list.push(currentNode.value);
+
+            if (currentNode.left) queue.push(currentNode.left);
+
+            if (currentNode.right) queue.push(currentNode.right);
+
+        }
+
+        return list;
+
+    }
+
     _removeNodeWithParent(unwantedNode, parentNode) {
 
         // it checks which side the unwanted node came from
@@ -264,32 +286,4 @@ class BinarySearchTree {
 
 }
 
-//       9
-//   4      20
-//1    6  15  170
-
-
-var bst = new BinarySearchTree();
-
-bst.insert(50);
-bst.insert(40);
-bst.insert(74);
-bst.insert(25);
-bst.insert(45);
-bst.insert(56);
-bst.insert(95);
-bst.insert(5);
-bst.insert(30);
-bst.insert(43);
-bst.insert(48);
-bst.insert(52);
-bst.insert(65);
-bst.insert(87);
-bst.insert(100);
-
-
-console.log(bst.remove(50));
-
-console.log(JSON.stringify(bst));
-
-// console.log(bst.lookup(11));
+module.exports = BinarySearchTree;

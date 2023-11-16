@@ -68,7 +68,7 @@ This algorithm, for instance, counts the occurrences of each element and uses th
 
 [Radix Sort](#radix-sort), on the other hand, distributes elements into buckets based on individual digits and processes these digits from the least significant to the most significant. It is suitable for sorting integers or strings with fixed-length representations.
 
-While both Radix Sort and Counting Sort have linear time complexities in certain scenarios, they differ in their underlying mechanisms and the nature of the characteristics they exploit for sorting.
+While both [Radix Sort](#radix-sort) and [Counting Sort](#counting-sort) have linear time complexities in certain scenarios, they differ in their underlying mechanisms and the nature of the characteristics they exploit for sorting.
 
 I didn't code these algorithms because its complexity of coding and they are not charged in technical interviews. But it is good to know that they are the best sorting algorithms and they have some limitations: 
 
