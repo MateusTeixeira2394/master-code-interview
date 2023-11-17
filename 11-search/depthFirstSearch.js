@@ -15,6 +15,6 @@ bst.insert(20);
 bst.insert(15);
 bst.insert(170);
 
-console.log("BFS:", bst.breadthFirstSearch());
-
-console.log("BFS Recursive:", bst.breadthFirstSearchRecursive());
+console.log("DFS Pre Order:", bst.DFSPreOrder());
+console.log("DFS In Order:", bst.DFSInOrder());
+console.log("DFS Post Order:", bst.DFSPostOrder());

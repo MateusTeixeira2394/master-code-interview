@@ -149,6 +149,59 @@ class BinarySearchTree {
 
     }
 
+    breadthFirstSearchRecursive(queue = [this.root], list = []) {
+
+        if(queue.length === 0) return list;
+
+        let currentNode = queue.pop();
+
+        list.push(currentNode.value);
+
+        if(currentNode.left) queue.push(currentNode.left);
+
+        if(currentNode.right) queue.push(currentNode.right);
+
+        return this.breadthFirstSearch(queue, list);
+
+    }
+
+    DFSPreOrder(currentNode = this.root, list = []){
+
+        list.push(currentNode.value);
+
+        if(currentNode.left) this.DFSPreOrder(currentNode.left, list);
+
+        if(currentNode.right) this.DFSPreOrder(currentNode.right, list);
+
+        return list;
+
+    }
+
+    DFSInOrder(currentNode = this.root, list = []){
+
+        if(currentNode.left) this.DFSInOrder(currentNode.left, list);
+
+        list.push(currentNode.value);
+
+        if(currentNode.right) this.DFSInOrder(currentNode.right, list);
+
+        return list;
+
+    }
+
+    DFSPostOrder(currentNode = this.root, list = []){
+
+        
+        if(currentNode.left) this.DFSPostOrder(currentNode.left, list);
+        
+        if(currentNode.right) this.DFSPostOrder(currentNode.right, list);
+        
+        list.push(currentNode.value);
+
+        return list;
+
+    }
+
     _removeNodeWithParent(unwantedNode, parentNode) {
 
         // it checks which side the unwanted node came from
